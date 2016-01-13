@@ -7,18 +7,25 @@ Kód je volně k použití či úpravě. Pokud jsi student VUT FIT, tak pozor na
 
 ### Vypracovaná rozšíření ###
 BASE
+
 WHILE
+
 FUNEXP
+
 SIMPLE
 
-## Na projektu se podíleli: ##
+### Na projektu se podíleli: ###
 David Novák
+
 Ivo Juráček
+
 Marek Majer
+
 Martin Trbola
+
 Šimon Urban
 
-## Použití ##
+### Použití ###
 Spusť make ve složce src. Vytvořený binární soubor pak spouštěj se jménem souboru se zdrojovým kódem v jazyce IFJ15. Příklady najdeš ve složce src/test.
 
 ```
