@@ -1,0 +1,19 @@
+/*result - ok
+>>> 5
+*/
+
+int add(int a, int b);
+
+int main()
+{
+	double a = 2;
+	int b = add(a,3);
+	cout << b << "\n";
+	return 54;
+}
+
+
+int add(int a, int b)
+{
+	return (a+b);
+}

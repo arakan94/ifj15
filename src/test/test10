@@ -1,0 +1,12 @@
+//result: Error 1
+
+int číslo()
+{
+	return 42;
+}
+
+int main()
+{
+	return číslo();
+}
+

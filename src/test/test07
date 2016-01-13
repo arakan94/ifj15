@@ -1,0 +1,17 @@
+//result: Error - 3 - missing main()
+
+string func1()
+{
+	string text = "lorem ipsum";
+	cout << text << "\n";
+	return text;
+}
+
+
+/*
+:(
+	missing main() definition :(    :(
+:(			:(			:(
+*/
+
+

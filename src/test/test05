@@ -1,0 +1,9 @@
+//result: Error - 2 - no semicolons
+
+int main()
+{
+	int a = 5
+	//this is not python!
+	return a
+}
+

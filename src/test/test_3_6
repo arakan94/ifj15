@@ -1,0 +1,17 @@
+/*
+	test auto - error
+*/
+
+int main()
+{
+	auto a = 42;
+	auto b = a;
+	auto c = "str";
+	auto d = 3.1415926;	//já vím, slabý...
+	cout << "Var a = " << a << " ( 42 => ok)" << "\n";
+	cout << "Var b = " << b << " ( 42 => ok)" << "\n";
+	cout << "Var c = " << c << " ( \"str\" => ok)" << "\n";
+	cout << "Var d = " << d << " ( 3.1415926 => ok)" << "\n";
+	auto not_defined;
+	return 0;
+}

@@ -1,0 +1,8 @@
+int main()
+{
+	int a = \x7FFFFFFF;
+	int b = \077777777777;
+	double c = 2.0e2;
+	cout << a << " " << b << " " << c << "\n";
+	return 1;
+}

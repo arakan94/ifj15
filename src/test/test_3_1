@@ -1,0 +1,10 @@
+/*
+	test uninitialized variable in expression
+*/
+
+int main()
+{
+	int a;
+	int b = a;
+	return 0;
+}

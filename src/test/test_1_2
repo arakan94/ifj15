@@ -1,0 +1,9 @@
+/*
+	test 'š' in identifier
+*/
+
+int main()
+{
+	int š = 42;
+	return 0;
+}

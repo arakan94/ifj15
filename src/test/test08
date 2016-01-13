@@ -1,0 +1,39 @@
+//result: Error - 3 - declared function not defined later
+
+string func1();
+
+string func2();
+
+string func3();
+
+string func4();	//not defined later
+
+int main()
+{
+	cout << func1() << "\n";
+	return 0;
+}
+
+
+
+string func1()
+{
+	string text = "lorem ipsum";
+	cout << text;
+	return text;
+}
+
+string func2()
+{
+	string text = "lorem ipsum";
+	cout << text;
+	return text;
+}
+
+string func3()
+{
+	string text = "lorem ipsum";
+	cout << text;
+	return text;
+}
+

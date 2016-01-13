@@ -1,0 +1,13 @@
+//result: Error - 3 - wrong main definition
+
+string main()
+{
+	return "test";
+}
+
+
+/*
+
+	lorem ipsum
+
+*/

@@ -1,0 +1,19 @@
+int main() {
+	int i;
+	double d;
+	string s;
+	
+	cout << "Enter integer value: ";
+	cin >> i;
+	cout << i << "\n";
+	
+	cout << "Enter double value: ";
+	cin >> d;
+	cout << d << "\n";
+	
+	cout << "Enter string value: ";
+	cin >> s;
+	cout << s << "\n";
+	
+	return 0;
+}

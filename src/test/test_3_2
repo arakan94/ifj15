@@ -1,0 +1,18 @@
+/*
+	test function redefinition
+*/
+
+int func()
+{
+	return 42;
+}
+
+int func()
+{
+	return 43;
+}
+
+int main()
+{
+	return func;
+}

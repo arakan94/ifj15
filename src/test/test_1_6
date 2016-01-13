@@ -1,0 +1,9 @@
+/*
+	test 'ı' in identifier
+*/
+
+int main()
+{
+	int ı = 42;
+	return 0;
+}

@@ -1,0 +1,9 @@
+/*
+	test 'ø' in identifier
+*/
+
+int main()
+{
+	int ø = 42;
+	return 0;
+}

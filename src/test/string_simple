@@ -1,0 +1,15 @@
+int main() {
+	string s = "Hello\n";
+	
+	cout << "Zadej retezec: ";
+	cin >> s;
+	
+	cout << s << "\n";
+	
+	string str2 = "Toto je nejaky text, ktery je";
+
+	int x = find(str2, "text");
+	cout << x << "\n";
+	
+	return 0;
+}

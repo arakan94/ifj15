@@ -1,0 +1,81 @@
+//test algardem
+
+int main()
+{
+	string str;
+	string temp;
+	int result;
+	int expected;
+	
+	str = "oooooooooopppppppqqqqqqqqqq";
+	temp = "b";
+	result = find(str , temp);
+	expected = 0-1;
+	cout << "find(\"" << str << "\", \"" << temp << "\"" << ") -> "  << result << "\n";
+	if (result == expected)
+		cout << "OK\n";
+	else
+		cout << "Error\n";
+	
+	str = "lorem ipsum dolor sit amet";
+	temp = "or";
+	result = find(str , temp);
+	expected = 1;
+	cout << "find(\"" << str << "\", \"" << temp << "\"" << ") -> "  << result << "\n";
+	if (result == expected)
+		cout << "OK\n";
+	else
+		cout << "Error\n";
+	
+	str = "tttt text text tttext";
+	temp = "text";
+	result = find(str , temp);
+	expected = 5;
+	cout << "find(\"" << str << "\", \"" << temp << "\"" << ") -> "  << result << "\n";
+	if (result == expected)
+		cout << "OK\n";
+	else
+		cout << "Error\n";
+	
+	str = "oopbruobuereiwuropbqrei";
+	temp = "b";
+	result = find(str , temp);
+	expected = 3;
+	cout << "find(\"" << str << "\", \"" << temp << "\"" << ") -> "  << result << "\n";
+	if (result == expected)
+		cout << "OK\n";
+	else
+		cout << "Error\n";
+	
+	str = "Toto je nějaký náhodný text, který nedává smysl.";
+	temp = "text";
+	result = find(str , temp);
+	expected = 27;
+	cout << "find(\"" << str << "\", \"" << temp << "\"" << ") -> "  << result << "\n";
+	if (result == expected)
+		cout << "OK\n";
+	else
+		cout << "Error\n";
+	
+	str = "Toto je nějaký náhodný text, který nedává smysl.";
+	temp = "nedává";
+	result = find(str , temp);
+	expected = 40;
+	cout << "find(\"" << str << "\", \"" << temp << "\"" << ") -> "  << result << "\n";
+	if (result == expected)
+		cout << "OK\n";
+	else
+		cout << "Error\n";
+	
+	str = "Toto je nejaky text, ktery je";
+	temp = "text";
+	result = find(str , temp);
+	expected = 15;
+	cout << "find(\"" << str << "\", \"" << temp << "\"" << ") -> "  << result << "\n";
+	if (result == expected)
+		cout << "OK\n";
+	else
+		cout << "Error\n";
+	
+	return 0;
+}

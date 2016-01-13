@@ -1,0 +1,26 @@
+int main() {
+	int a = 10;
+	
+	string nl = "\n";
+	
+	while (a > 0) {
+		cout << a << nl;
+		a = a - 1;
+	}
+	
+	auto b = 10;
+	
+	do {
+		cout << b << nl;
+		b = b - 1;
+	} while (b > 0);
+	
+	while (0)
+		cout << "Won't print\n";
+	
+	do
+		cout << "Will print once\n";
+	while (0);
+	
+	return 0;
+}

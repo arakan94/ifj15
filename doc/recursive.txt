@@ -1,0 +1,314 @@
+P:
+	if (token == TYPE): // pravidlo 1: P -> F P
+		return F && P;
+
+	if (token == EOF): // pravidlo 2: P -> eps
+		return 1;
+
+	return 0;
+
+F:
+	if (token == TYPE): // pravidlo 3: type idf ( AL ) FD
+		getToken;
+
+		if (token != ID):
+			return 0;
+		getToken;
+
+		if (token != '('):
+			return 0;
+		getToken;
+
+		if (!AL):
+			return 0;
+
+		if (token != ')'):
+			return 0;
+		getToken;
+
+		return FD;
+
+	return 0;
+
+AL:
+	if (token == TYPE): // pravidlo 4: AL -> D AL2
+		return D && AL2;
+
+	if (token == ')'): // pravidlo 5: AL -> eps
+		return 1;
+
+	return 0;
+
+FD:
+	if (token == ';'): // pravidlo 8: FD -> ;
+		getToken;
+
+		return 1;
+
+	if (token == '{'): // pravidlo 9: FD -> { STL }
+		getToken;
+
+		if (!STL):
+			return 0;
+
+		if (token != '}'):
+			return 0;
+		getToken;
+
+		return 1;
+
+	return 0;
+
+D:
+	if (token == TYPE): // pravidlo 10: D -> type id
+		getToken;
+
+		if (token != ID):
+			return 0;
+		getToken;
+
+		return 1;
+
+	return 0;
+
+AL2:
+	if (token == ')'): // pravidlo 7: AL2 -> eps
+		return 1;
+
+	if (token == ','): // pravidlo 6: AL2 -> , D AL2
+		getToken;
+
+		return D && AL2;
+
+	return 0;
+
+STL:
+	if (token in [TYPE, '{', ID, IF, FOR, RETURN, CIN, COUT]): // pravidlo 11: STL -> S STL
+		return S && STL;
+
+	if (token == '}'): // pravidlo 12: STL -> eps
+		return 1;
+	
+	return 0;
+
+S:
+	if (token == TYPE): // pravidlo 13: S -> D I ;
+		if (!(D && I)):
+			return 0;
+
+		if (token != ';'):
+			return 0;
+		getToken;
+
+		return 1;
+
+	if (token == '{'): // pravidlo 15: S -> { STL }
+		getToken;
+
+		if (!STL):
+			return 0;
+
+		if (token != '}'):
+			return 0;
+		getToken;
+
+		return 1;
+
+	if (token == ID): // pravidlo 14: S -> id = ASG ;
+		getToken;
+
+		if (token != '='):
+			return 0;
+		getToken;
+
+		if (!ASG):
+			return 0;
+
+		if (token != ';'):
+			return 0;
+		getToken;
+
+		return 1;
+
+	if (token == IF): // pravidlo 16: S -> if ( E ) S else S
+		getToken;
+
+		if (token != '('):
+			return 0;
+		getToken;
+
+		if (!E):
+			return 0;
+
+		if (token != ')'):
+			return 0;
+		getToken;
+
+		if (!S):
+			return 0;
+
+		if (token != ELSE):
+			return 0;
+		getToken;
+
+		return S;
+
+	if (token == FOR): // pravidlo 17: S -> for ( D = E ; E ; id = E ) S
+		getToken;
+
+		if (token != '('):
+			return 0;
+		getToken;
+
+		if (!D):
+			return 0;
+
+		if (token != '='):
+			return 0;
+		getToken;
+
+		if (!E):
+			return 0;
+
+		if (token != ';'):
+			return 0;
+		getToken;
+
+		if (!E):
+			return 0;
+
+		if (token != ';'):
+			return 0;
+		getToken;
+
+		if (token != ID):
+			return 0;
+		getToken;
+
+		if (token != '='):
+			return 0;
+		getToken;
+
+		if (!E):
+			return 0;
+
+		if (token != ')'):
+			return 0;
+		getToken;
+
+		return S;
+
+	if (token == RETURN): // pravidlo 18: S -> return E ;
+		getToken;
+
+		if (!E):
+			return 0;
+
+		if (token != ';'):
+			return 0;
+		getToken;
+
+		return 1;
+
+	if (token == CIN): // pravidlo 19: S -> cin >> id IN ;
+		getToken;
+
+		if (token != '>>'):
+			return 0;
+		getToken;
+
+		if (token != ID):
+			return 0;
+		getToken;
+
+		return IN;
+
+	if (token == COUT): // pravidlo 20: S -> cout << E OUT ;
+		getToken;
+
+		if (token != '<<'):
+			return 0;
+		getToken;
+
+		if (!E):
+			return 0;
+
+		return OUT;
+
+	return 0;
+
+I:
+	if (token == ';'): // pravidlo 24: I -> eps
+		return 1;
+
+	if (token == '='): // pravidlo 23: I -> = ASG
+		getToken;
+
+		return ASG;
+
+	return 0;
+
+ASG:
+	if (token == ID): // pravidlo 22: ASG -> idf ( PL )
+		getToken;
+
+		if (token != '('):
+			return 0;
+		getToken;
+
+		if (!PL):
+			return 0;
+
+		if (token != ')'):
+			return 0;
+		getToken;
+
+		return 1;
+
+	return E; // pravidlo 21: ASG -> E
+
+E:
+	// výraz
+
+IN:
+	if (token == ';'): // pravidlo 30: IN -> eps
+		return 1;
+
+	if (token == '>>'): // pravidlo 29: IN -> >> id IN
+		getToken;
+
+		if (token != ID):
+			return 0;
+		getToken;
+
+		return IN;
+
+	return 0;
+
+OUT:
+	if (token == ';'): // pravidlo 32: OUT -> eps
+		return 1;
+
+	if (token == '<<'): // pravidlo 31: OUT -> << E OUT
+		getToken;
+
+		return E && OUT;
+
+	return 0;
+
+PL:
+	if (token == ')'): // pravidlo 26: PL -> eps
+		return 1;
+
+	return E && PL2; // pravidlo 25: PL -> E PL2
+
+PL2:
+	if (token == ')'): // pravidlo 28: PL2 -> eps
+		return 1;
+
+	if (token == ','): // pravidlo 27: , E PL2
+		getToken;
+
+		return E && PL2;
+
+	return 0;

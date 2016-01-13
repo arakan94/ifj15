@@ -1,0 +1,10 @@
+*~
+*.save
+*.out
+*.o
+*.cbp
+*.depend
+*.layout
+*.exe
+ifj
+scanner_selftest

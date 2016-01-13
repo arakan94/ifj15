@@ -1,0 +1,9 @@
+/*
+	test 'é' in identifier
+*/
+
+int main()
+{
+	int é = 42;
+	return 0;
+}

@@ -1,0 +1,41 @@
+P -> F P
+P -> EOF
+
+F -> type idf ( AL ) FD
+
+AL -> AD AL2
+AL -> eps
+AL2 -> , AD AL2
+AL2 -> eps
+
+AD -> type id
+
+FD -> ;
+FD -> { STL }
+
+STL -> S STL
+STL -> eps
+
+S -> D ;
+S -> { STL }
+S -> if ( E ) S ELSE
+S -> for ( D ; E ; E ) S
+S -> while ( E ) S
+S -> do S while ( E ) ;
+S -> return E ;
+S -> cin >> id IN ;
+S -> cout << E OUT ;
+S -> E ;
+
+D -> type id I
+
+I -> = E
+I -> eps
+
+ELSE -> else S
+ELSE -> eps
+
+IN -> >> id IN
+IN -> eps
+OUT -> << E OUT
+OUT -> eps

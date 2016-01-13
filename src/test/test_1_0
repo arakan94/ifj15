@@ -1,0 +1,9 @@
+/*
+	test ':' in identifier
+*/
+
+int main()
+{
+	int lorem:ipsum = 42;
+	return 0;
+}

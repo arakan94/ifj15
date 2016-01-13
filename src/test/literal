@@ -1,0 +1,3 @@
+double d = 15.451e-2;
+"Ahoj\b1010Sve'te\\\x221rab\tcs\b00001010Dalsi\012 radek"
+"\\, \", \n, \t, \x1 - \xff, \b1 - \b11111111, \01 - \0377"

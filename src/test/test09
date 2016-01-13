@@ -1,0 +1,48 @@
+/*result: (Test built-in functions)
+>>> dfe bcg hai
+>>> 11
+>>> abcdefghi
+>>> 8
+>>> -1
+>>> cdef
+*/
+
+string func1();
+
+string func2();
+
+string func3();
+
+// test built-in functions 
+
+int main()
+{
+	string temp = concat(func1(), func2());
+	temp = concat(temp, func3());
+	cout << temp << "\n";
+	cout << length(temp) << "\n";
+	cout << sort(temp) << "\n";
+	cout << find(temp , "ha") << "\n";
+	cout << find(temp, "nope") << "\n";	//won't find
+	cout << substr(temp , 2 , 4) << "\n";
+	return 42;
+}
+
+
+string func1()
+{
+	string text = "dfe ";
+	return text;
+}
+
+string func2()
+{
+	string text = "bcg";
+	return text;
+}
+
+string func3()
+{
+	string text = " hai";
+	return text;
+}

@@ -1,0 +1,30 @@
+/*
+	test implicit conversion
+*/
+
+int add_i(int a, int b)
+{
+	return a + b;
+}
+
+double add_f(double a, double b)
+{
+	return a + b;
+}
+
+int main()
+{
+	int a;
+	double b;
+	
+	a = 5.9;
+	b = a;
+	
+	cout << "var a: " << a << "\n";
+	cout << "var a: " << b << "\n";
+	
+	cout << "add a+b (integer): " << add_i(a, b) << "\n";
+	cout << "add a+b (float): " << add_f(a, b) << "\n";
+	
+	return 0;
+}

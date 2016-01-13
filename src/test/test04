@@ -1,0 +1,9 @@
+//result: Error - 4 - int * string - compability error
+
+int main()
+{
+	int looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong_iiiiiiiiiddddddddddddd = 0;
+	looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong_iiiiiiiiiddddddddddddd = looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong_iiiiiiiiiddddddddddddd * "error";
+	return a;
+}
+

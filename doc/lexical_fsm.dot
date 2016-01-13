@@ -1,0 +1,90 @@
+digraph G {
+    rankdir="LR";
+    ranksep="0.5";
+    fontname="sans-serif";
+    ratio="auto";
+    splines="true";
+    size="30";
+    margin="0.0";
+    style="bold, rounded";
+    penwidth="1";
+    edge [comment="Wildcard edge", 
+          color=2, 
+          fontname="sans-serif", 
+          fontsize=10, 
+          fontcolor=3];
+    node [fontname="serif", 
+          colorscheme="bupu3", 
+          color="2", 
+          style="filled", 
+          distortion="0.0", 
+          fontsize=13, 
+          fillcolor="1", 
+          fontcolor="4", 
+          penwidth="1.5"];
+
+T_ID, T_KEYWORD, T_OPERATOR, T_DELIMITER, T_STRING, T_INT, T_FLOAT [peripheries=2];
+
+DUMMY [style=invis,shape=point];
+
+		DUMMY -> INIT;
+
+    INIT -> SLASH [label="/"];
+    INIT -> OPERATOR  [label="is_operator()"];
+    INIT -> INIT  [label="whitespace"];
+    INIT -> ID  [label="_"];
+    INIT -> ID_KEYWORD  [label="alpha"];
+    INIT -> STRING  [label="\""];
+    INIT -> NUMBER  [label="digit"];
+    INIT -> T_DELIMITER  [label="is_delimiter()"];
+    INIT -> BASE_EXT [label="\\"];
+
+    ID_KEYWORD -> ID_KEYWORD  [label="alpha"];
+    ID_KEYWORD -> ID  [label="_ || digit"];
+    ID_KEYWORD -> T_KEYWORD  [label="is_keyword()"];
+    ID_KEYWORD -> T_ID [label="!is_keyword()"];
+
+    ID -> ID  [label="alnum || _"];
+    ID -> T_ID [label="ε"];
+
+    OPERATOR -> OPERATOR  [label="is_operator()"];
+    OPERATOR -> T_OPERATOR [label="!is_operator()"];
+
+    SLASH -> LINE_COMMENT  [label="\/ "];
+    SLASH -> BLOCK_COMMENT  [label="\* "];
+    SLASH -> T_OPERATOR [label="ε"];
+
+    STRING -> T_STRING  [label="\""];
+    STRING -> STRING;
+    STRING -> STRING_BACKSLASH  [label="\\"];
+
+    STRING_BACKSLASH -> STRING_HEXA  [label="x"];
+    STRING_BACKSLASH -> STRING_BINARY  [label="b"];
+    STRING_BACKSLASH -> STRING_OCTA  [label="0"];
+
+    STRING_HEXA -> STRING [label="ε"];
+    STRING_BINARY -> STRING [label="ε"];
+    STRING_OCTA -> STRING [label="ε"];
+
+    LINE_COMMENT -> INIT  [label="\\n"];
+    BLOCK_COMMENT -> INIT  [label="\*\/"];
+
+    NUMBER -> NUMBER  [label="digit"];
+    NUMBER -> T_INT [label="ε"];
+    NUMBER -> FLOAT  [label="."];
+    NUMBER -> FLOAT_EXP  [label="e/E"];
+
+    FLOAT -> FLOAT  [label="digit"];
+    FLOAT -> FLOAT_EXP  [label="e/E"];
+    FLOAT -> T_FLOAT [label="ε"];
+    FLOAT_EXP -> FLOAT_EXP  [label="digit || (c[i-1]=e/E && +/-)"];
+    FLOAT_EXP -> T_FLOAT [label="ε"];
+
+    BASE_EXT -> BINARY [label="b"];
+    BASE_EXT -> OCTA [label="0"];
+    BASE_EXT -> HEXA [label="x"];
+
+    BINARY -> T_INT [label="ε"];
+    OCTA -> T_INT [label="ε"];
+    HEXA -> T_INT [label="ε"];
+}

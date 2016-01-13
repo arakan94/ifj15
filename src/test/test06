@@ -1,0 +1,14 @@
+//result: Error - 3 - redefinition
+
+//same function and it's parameter identifier :(
+double abc(double abc)
+{
+	abc = 42.0;
+	return abc;
+}
+
+int main()
+{
+	int a = abc();
+	return a;
+}

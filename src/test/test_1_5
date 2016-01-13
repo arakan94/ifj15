@@ -1,0 +1,9 @@
+/*
+	test '' in identifier
+*/
+
+int main()
+{
+	int  = 42;
+	return 0;
+}

@@ -1,0 +1,25 @@
+int foo(int n) {
+	cout << n << "\n";
+	
+	return n;
+}
+
+int main() {
+	int a = 5;
+	a = 4;
+	
+	a = foo(8) + 3;
+	
+	cout << a << "\n";
+	
+	if (5 < 3)
+		cout << "blah\n";
+	else
+		cout << "a\n";
+	
+	for (int i = 0; i < 10; i = i + 1) {
+		cout << i << "\n";
+	}
+	
+	return 0;
+}

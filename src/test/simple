@@ -1,0 +1,9 @@
+int main() {
+	if (1)
+		cout << "Simple if\n";
+	
+	if (0)
+		cout << "Failed simple if :(\n";
+	
+	return 0;
+}

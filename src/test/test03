@@ -1,0 +1,13 @@
+//result: Error - 8
+
+int func_of_no_return();
+
+int main()
+{
+	return func_of_no_return();
+}
+
+
+int func_of_no_return()
+{
+}

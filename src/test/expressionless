@@ -1,0 +1,14 @@
+int x(int a, int b) {
+	
+}
+
+int main() {
+	int a = f();
+	
+	{
+		int a = s();
+		int b = t();
+	}
+	
+	cin >> a;
+}
